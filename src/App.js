@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 // import './App.css';
 import Label from './components/class/Label';
 import ButtonF from './components/functional/Button';
