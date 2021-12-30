@@ -21,7 +21,7 @@ class AddPost extends Component {
     // addPostHandler = (e) => {
     //     e.preventDefault()
     //     let msg = `Title:${this.state.title}, Desc: ${this.state.description}, Status: ${this.state.status}` ;
-    //     alert()
+    //     alert(msg)
     // }
 
     render() {

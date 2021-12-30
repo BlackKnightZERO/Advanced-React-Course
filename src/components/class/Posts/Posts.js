@@ -75,7 +75,6 @@ class Posts extends Component {
 
     inputHandler = (e) => {
         const {name, value} = e.target 
-        const oldState = this.state.newPost;
         this.setState((prevValue) => (
             {
                 ...prevValue,
