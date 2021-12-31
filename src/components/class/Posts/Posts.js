@@ -145,7 +145,13 @@ class Posts extends Component {
                                 description={post.description} 
                                 status={post.status} 
                                 key={post.id} 
-                                singleInputHandler={this.singleInputHandler.bind(this, post.id)} />
+                                >
+                                    {/* Composition Model using props.children */}
+                                    <input name="title" type="text"
+                                    onChange={this.singleInputHandler.bind(this, post.id)}
+                                    value={post.title}
+                                    className="px-2 py-1 block w-full border border-gray-600 focus:outline-none focus:border-indigo-600"  />
+                                </SinglePost>
                         ))
                     }
                 </div>

@@ -11,11 +11,8 @@ class SinglePost extends Component {
                     ? <small className="text-green-500">{ this.props.status }</small> 
                     : <small className="text-red-500">{ this.props.status }</small>
                 }
-                <input name="title" type="text"
-                    onChange={this.props.singleInputHandler}
-                    value={this.props.title}
-                    className="px-2 py-1 block w-full border border-gray-600 focus:outline-none focus:border-indigo-600"  />
-                
+                {/* Composition Model using props.children */}
+                { this.props.children }
             </div>
         )
     }
