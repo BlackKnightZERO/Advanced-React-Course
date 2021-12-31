@@ -63,15 +63,15 @@ class Posts extends Component {
         this.setState( {isVisible:!this.state.isVisible} )
     }
 
-    getPosts = () => {
-        let jsx = null;
-        if(this.state.posts && this.state.isVisible) {
-            jsx = this.state.posts.map((post) => (
-                <SinglePost title={post.title} description={post.description} status={post.status} key={post.id} />
-            ))
-        }
-        return jsx;
-    }
+    // getPosts = () => {
+    //     let jsx = null;
+    //     if(this.state.posts && this.state.isVisible) {
+    //         jsx = this.state.posts.map((post) => (
+    //             <SinglePost title={post.title} description={post.description} status={post.status} key={post.id} />
+    //         ))
+    //     }
+    //     return jsx;
+    // }
 
     inputHandler = (e) => {
         const {name, value} = e.target 
@@ -86,6 +86,7 @@ class Posts extends Component {
         ))
     }
 
+    // from child
     addPostHandler = (e) => {
         e.preventDefault()
 
@@ -111,8 +112,24 @@ class Posts extends Component {
             }
         ))
 
-        console.log(this.state)
+        //  reset-form
+        const newPostReset = {id:0, title:'', description:'', status:'active'}
+        this.setState((prevValue) => (
+            {
+                ...prevValue,
+                newPost:newPostReset
+            }
+        ))
+    }
 
+    // from loop
+    singleInputHandler = (id, e) => {                                                                   // FIND INDEX IN AN ARARAY OF Objs ***
+        const {name, value} = e.target
+        const postIndex     = this.state.posts.findIndex(post => post.id === id)
+        const posts         = [...this.state.posts]
+        posts[postIndex][name] = value
+        // posts[postIndex].title = e.target.value
+        this.setState({posts})
     }
 
     render(){
@@ -123,23 +140,28 @@ class Posts extends Component {
                     {/* conditional-rendering-method-1 : embedded JSX  */}
                     {
                         this.state.posts && this.state.isVisible && this.state.posts.map((post) => (
-                            <SinglePost title={post.title} description={post.description} status={post.status} key={post.id} />
+                            <SinglePost 
+                                title={post.title} 
+                                description={post.description} 
+                                status={post.status} 
+                                key={post.id} 
+                                singleInputHandler={this.singleInputHandler.bind(this, post.id)} />
                         ))
                     }
                 </div>
-                <div className="flex">
+                {/* <div className="flex"> */}
                     {/* conditional-rendering-method-2 : ? turnary rendering */}
-                    {
+                    {/* {
                         (this.state.posts && this.state.isVisible) ?
                         this.state.posts.map((post) => (
                             <SinglePost title={post.title} description={post.description} status={post.status} key={post.id} />
                         )) : null
                     }
-                </div>
-                <div className="flex">
+                </div> */}
+                {/* <div className="flex"> */}
                     {/* conditional-rendering-method-3 : functional-property calling */}
-                    { this.getPosts() }
-                </div>
+                    {/* { this.getPosts() }
+                </div> */}
 
                 <button onClick={(e) => this.updateTitleHandler('Updated', e)} 
                     className="my-1 mr-1 rounded-lg px-2 py-1 bg-green-700 text-green-100 hover:bg-green-800 duration-200">Update</button>
