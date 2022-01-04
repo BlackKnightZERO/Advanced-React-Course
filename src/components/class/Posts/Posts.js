@@ -24,7 +24,7 @@ class Posts extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('%c parent(update) - shouldComponentUpdate', 'background: teal');
+        console.log('%c parent(update) - shouldComponentUpdate', 'background: green');
         return true
     }
 
@@ -188,6 +188,10 @@ class Posts extends Component {
 
     componentDidMount() {
         console.log('%c 4. parent(create) - componentDidMount', 'background:orange')
+    }
+
+    componentWillUnmount() {
+        console.log('%c X. parent(destory) - componentWillUnmount', 'background: orange')
     }
 }
 

@@ -53,6 +53,10 @@ class SinglePost extends Component {
     componentDidMount() {
         console.log('%c 4. child(create) - componentDidMount', 'background: yellow')
     }
+
+    componentWillUnmount() {
+        console.log('%c X. child(destory) - componentWillUnmount', 'background: yellow')
+    }
 }
 
 export default SinglePost;
