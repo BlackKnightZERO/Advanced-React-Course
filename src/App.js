@@ -42,11 +42,10 @@ function App() {
 
             <SideBar>
               <div>
-                <h4><i>{userData.greet()}</i></h4>
+                <h4><i>{userData.greetx()}</i></h4>
                 <a href="#">Link 1</a>
               </div>
             </SideBar>
-
 
           </div>
           <div className="w-4/5">
