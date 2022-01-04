@@ -6,6 +6,7 @@ import SideBar from './components/class/SideBar/SideBar';
 import Navigation from './components/class/Navigation/Navigation';
 import ButtonContext from './context/ButtonContext';
 import UserContext from './context/UserContext';
+// import ErrorBoundary from './components/class/ErrorBoundary/ErrorBoundary';
 
 function App() {
 
@@ -40,12 +41,14 @@ function App() {
               </Navigation>
             </SideBar> */}
 
-            <SideBar>
-              <div>
-                <h4><i>{userData.greetx()}</i></h4>
-                <a href="#">Link 1</a>
-              </div>
-            </SideBar>
+            {/* <ErrorBoundary> */}
+              <SideBar>
+                <div>
+                  <h4><i>{userData.greetx()}</i></h4>
+                  <a href="#">Link 1</a>
+                </div>
+              </SideBar>
+            {/* </ErrorBoundary> */}
 
           </div>
           <div className="w-4/5">

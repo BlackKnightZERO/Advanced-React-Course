@@ -9,7 +9,7 @@ ReactDOM.render(
   <ErrorBoundary>
     <React.StrictMode>
       <App />
-    </React.StrictMode>,
+    </React.StrictMode>
   </ErrorBoundary>,
   document.getElementById('root')
 );
