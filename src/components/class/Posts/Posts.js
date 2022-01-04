@@ -4,15 +4,29 @@ import AddPost from './AddPost';
 
 class Posts extends Component {
 
-    state = {
-        posts:[
-            { id:1, title:'title-01', description:'description-01', status:'active', },
-            { id:2, title:'title-02', description:'description-02', status:'inactive', },
-        ],
-        isEditable:true,
-        isVisible:true,
-        newPost:{id:0, title:'', description:'', status:'active'},
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+            posts:[
+                { id:1, title:'title-01', description:'description-01', status:'active', },
+                { id:2, title:'title-02', description:'description-02', status:'inactive', },
+            ],
+            isEditable:true,
+            isVisible:true,
+            newPost:{id:0, title:'', description:'', status:'active'},
+        };
+        console.log('%c 1. parent(create) - constructor called', 'background:orange;')
+    }
+
+    static getDerivedStateFromProps(props, state){
+        console.log('%c 2. parent(create/update) - getDerivedStateFromProps', 'background:orange;')
+        return state
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('%c parent(update) - shouldComponentUpdate', 'background: teal');
+        return true
+    }
 
     updateTitleHandler = (title, e) => {                    // called e from button's anonymous function
 
@@ -62,16 +76,6 @@ class Posts extends Component {
     toggle = () => {
         this.setState( {isVisible:!this.state.isVisible} )
     }
-
-    // getPosts = () => {
-    //     let jsx = null;
-    //     if(this.state.posts && this.state.isVisible) {
-    //         jsx = this.state.posts.map((post) => (
-    //             <SinglePost title={post.title} description={post.description} status={post.status} key={post.id} />
-    //         ))
-    //     }
-    //     return jsx;
-    // }
 
     inputHandler = (e) => {
         const {name, value} = e.target 
@@ -134,6 +138,8 @@ class Posts extends Component {
 
     render(){
 
+        console.log('%c 3. parent(create/update) - render called', 'background:orange')
+
         return (
             <div>
                 <div className="flex">
@@ -145,29 +151,10 @@ class Posts extends Component {
                                 description={post.description} 
                                 status={post.status} 
                                 key={post.id} 
-                                >
-                                    {/* Composition Model using props.children */}
-                                    <input name="title" type="text"
-                                    onChange={this.singleInputHandler.bind(this, post.id)}
-                                    value={post.title}
-                                    className="px-2 py-1 block w-full border border-gray-600 focus:outline-none focus:border-indigo-600"  />
-                                </SinglePost>
+                                singleInputHandler={this.singleInputHandler.bind(this, post.id)} />
                         ))
                     }
                 </div>
-                {/* <div className="flex"> */}
-                    {/* conditional-rendering-method-2 : ? turnary rendering */}
-                    {/* {
-                        (this.state.posts && this.state.isVisible) ?
-                        this.state.posts.map((post) => (
-                            <SinglePost title={post.title} description={post.description} status={post.status} key={post.id} />
-                        )) : null
-                    }
-                </div> */}
-                {/* <div className="flex"> */}
-                    {/* conditional-rendering-method-3 : functional-property calling */}
-                    {/* { this.getPosts() }
-                </div> */}
 
                 <button onClick={(e) => this.updateTitleHandler('Updated', e)} 
                     className="my-1 mr-1 rounded-lg px-2 py-1 bg-green-700 text-green-100 hover:bg-green-800 duration-200">Update</button>
@@ -187,6 +174,20 @@ class Posts extends Component {
 
             </div>
         )
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevStates) {
+        console.log('%c parent(update) - getSnapshotBeforeUpdate', 'background: green')
+        return `snapshot taken at ${ new Date().toLocaleTimeString() }`
+    }
+
+    componentDidUpdate(prevProps, prevStates, snapShot) {
+        console.log('%c parent(update) - conponentDidUpdate', 'background: green')
+        console.log(snapShot)
+    }
+
+    componentDidMount() {
+        console.log('%c 4. parent(create) - componentDidMount', 'background:orange')
     }
 }
 
