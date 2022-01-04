@@ -1,12 +1,8 @@
-// import logo from './logo.svg';
-// import './App.css';
 import Label from './components/class/Label';
 import PostsC from './components/class/Posts/Posts';
 import SideBar from './components/class/SideBar/SideBar';
-import Navigation from './components/class/Navigation/Navigation';
-import ButtonContext from './context/ButtonContext';
-import UserContext from './context/UserContext';
-// import ErrorBoundary from './components/class/ErrorBoundary/ErrorBoundary';
+import Category from './components/class/Category/Category';
+
 
 function App() {
 
@@ -24,36 +20,23 @@ function App() {
         <div className="flex">
           <div className="w-1/5 bg-sky-500/50">
 
-            {/* single context */}
-
-            {/* <ButtonContext.Provider value="Link 1 (parent closest provider)">
-                <SideBar />                                                
-            </ButtonContext.Provider> */}
-
-            {/* multiple context with composition model - props.children */}
-            
-            {/* <SideBar>
-              <Navigation>
+              <SideBar>
                 <div>
                   <h4><i>{userData.greet()}</i></h4>
                   <a href="#">Link 1</a>
                 </div>
-              </Navigation>
-            </SideBar> */}
-
-            {/* <ErrorBoundary> */}
-              <SideBar>
-                <div>
-                  <h4><i>{userData.greetx()}</i></h4>
-                  <a href="#">Link 1</a>
-                </div>
               </SideBar>
-            {/* </ErrorBoundary> */}
 
           </div>
           <div className="w-4/5">
-          <h3 className="text-3xl font-semibold text-gray-700">Posts List</h3>
-          <PostsC /> 
+            <div>
+              <Category title="Category Title" subtitle="Category Subtitle" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-semibold text-gray-700">Posts List</h3>
+              <PostsC /> 
+            </div>
+          
           </div>
         </div>
       </div>
