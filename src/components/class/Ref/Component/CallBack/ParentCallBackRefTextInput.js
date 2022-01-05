@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CallBackRefTextInput from "./CallBackRefTextInput";
+import ChildBackRefTextInput from "./ChildBackRefTextInput";
 
 class ParentCallBackRefTextInput extends Component {
 
@@ -10,13 +10,13 @@ class ParentCallBackRefTextInput extends Component {
 
     componentDidMount() {
         this.textInput.focus();
-        this.textInput.value = 'Arif - calling from callback';
+        this.textInput.value = 'Arif - calling from parent';
     }
 
     render() {
         return (
             <div>
-                <CallBackRefTextInput
+                <ChildBackRefTextInput
                 inputRef={ (el) => (this.textInput = el) }
                 />
             </div>

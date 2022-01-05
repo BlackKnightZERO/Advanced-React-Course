@@ -3,6 +3,7 @@ import PostsC from './components/class/Posts/Posts';
 import SideBar from './components/class/SideBar/SideBar';
 import RefTextInput from './components/class/Ref/DOM/RefTextInput/RefTextInput';
 import ParentRefTextInput from './components/class/Ref/Component/ParentRefTextInput';
+import CallBackRefTextInput from './components/class/Ref/Component/CallBack/CallBackRefTextInput';
 import ParentCallBackRefTextInput from './components/class/Ref/Component/CallBack/ParentCallBackRefTextInput';
 
 function App() {
@@ -31,17 +32,19 @@ function App() {
           </div>
           <div className="px-1 w-4/5">
             <div>
-              <h6 className="text-green-700">dom ref</h6>
-              {/* HTML DOM ref */}
+              <h6 className="font-semibold text-green-600">dom ref</h6>
               <RefTextInput />
             </div>
             <div>
-              <h6 className="text-orange-700">component ref</h6>
-              {/* class ref */}
+              <h6 className="font-semibold text-teal-600">component ref</h6>
               <ParentRefTextInput />
             </div>
             <div>
-              <h6 className="text-blue-700">callback ref</h6>
+              <h6 className="font-semibold text-blue-600">callback ref (self)</h6>
+              <CallBackRefTextInput />
+            </div>
+            <div>
+              <h6 className="font-semibold text-indigo-600">callback ref (parent-child)</h6>
               {/* callback ref */}
               <ParentCallBackRefTextInput />
             </div>
