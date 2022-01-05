@@ -54,7 +54,7 @@ class AddPost extends Component {
                         </select>
                     </div>
                     <div className="py-1">
-                        <button type="submit" className="bg-indigo-700 text-white px-2 py-1">Add</button>
+                        <button type="submit" className="bg-orange-700 text-white px-2 py-1">Add</button>
                     </div>
                 </form>
             </div>
