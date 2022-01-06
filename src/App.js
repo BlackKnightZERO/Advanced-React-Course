@@ -3,8 +3,9 @@ import PostsC from './components/class/Posts/Posts';
 import SideBar from './components/class/SideBar/SideBar';
 import RefTextInput from './components/class/Ref/DOM/RefTextInput/RefTextInput';
 import ParentRefTextInput from './components/class/Ref/Component/ParentRefTextInput';
-import CallBackRefTextInput from './components/class/Ref/Component/CallBack/CallBackRefTextInput';
-import ParentCallBackRefTextInput from './components/class/Ref/Component/CallBack/ParentCallBackRefTextInput';
+import CallBackRefTextInput from './components/class/Ref/CallBack/CallBackRefTextInput';
+import ParentCallBackRefTextInput from './components/class/Ref/CallBack/childDOMInParentComponent/ParentCallBackRefTextInput';
+import ParentForwardingRefBtn from './components/class/Ref/Forwarding/ParentForwardingRefBtn';
 
 function App() {
 
@@ -45,8 +46,11 @@ function App() {
             </div>
             <div>
               <h6 className="font-semibold text-indigo-600">callback ref (parent-child)</h6>
-              {/* callback ref */}
               <ParentCallBackRefTextInput />
+            </div>
+            <div>
+              <h6 className="font-semibold text-red-600">Forwarding ref (parent-child / HOC)</h6>
+              <ParentForwardingRefBtn />
             </div>
 
             <div>
