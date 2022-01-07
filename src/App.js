@@ -1,4 +1,4 @@
-import Table from './components/class/Fragment/Table';
+import Table from './components/class/FragmentsAndPropTypes/Table';
 import Label from './components/class/Label';
 import MouseTracker from './components/class/RenderProps/MouseTracker/MouseTracker';
 import RenderProps from './components/class/RenderProps/MouseTracker/RenderProps';
@@ -13,6 +13,7 @@ function App() {
       <div className="container mx-auto px-4 md:container md:mx-auto">
         <Label title="Advanced React Course" />
         <div>
+        <h2 className="text-lg text-blue-700 font-semibold">Fragments & PropTypes &#9889;</h2>
           <Table/>
         </div>
         <div>

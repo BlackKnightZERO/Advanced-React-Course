@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class TableData extends Component {
 
@@ -11,6 +12,7 @@ class TableData extends Component {
     }
 
     render() {
+        // console.log(this.props.tableData)
         return (
             <>
             {
@@ -31,6 +33,16 @@ class TableData extends Component {
             </>
         )
     }
+}
+
+TableData.propTypes = {
+    tableData: PropTypes.arrayOf(
+        PropTypes.shape({
+            id      : PropTypes.number.isRequired,
+            name    : PropTypes.string,
+            member  : PropTypes.bool,
+        })
+      ),
 }
 
 export default TableData;

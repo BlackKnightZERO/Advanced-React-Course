@@ -1,6 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import TableData from "./TableData";
-import { useEffect } from "react";
+import TableRow from "./TableRow";
 
 class Table extends Component{
 
@@ -29,6 +29,16 @@ class Table extends Component{
 
             <tbody>
                 <TableData tableData={this.state.user} />
+                {
+                    this.state.user && (
+                        this.state.user.map( (m, index) => (
+                            <React.Fragment key={index} >
+                                <TableRow id={m.id} name={m.name} member={m.member} />
+                            </React.Fragment>
+                        ) )
+                    )
+                }
+
             </tbody>
             </table>
             </>
