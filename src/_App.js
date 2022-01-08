@@ -6,6 +6,10 @@ import ParentRefTextInput from './components/class/Ref/Component/ParentRefTextIn
 import CallBackRefTextInput from './components/class/Ref/CallBack/CallBackRefTextInput';
 import ParentCallBackRefTextInput from './components/class/Ref/CallBack/childDOMInParentComponent/ParentCallBackRefTextInput';
 import ParentForwardingRefBtn from './components/class/Ref/Forwarding/ParentForwardingRefBtn';
+import ThemeContext from './context/mixed/webDevSimplified/ThemeContext';
+import ContextComponentC from './context/mixed/webDevSimplified/ContextComponentC';
+import ContextComponentF from './context/mixed/webDevSimplified/ContextComponentF';
+
 
 function App() {
 
@@ -20,7 +24,7 @@ function App() {
     <div className="App">
       <div className="container mx-auto px-4 md:container md:mx-auto">
         <Label title="Advanced React Course" />
-        <div className="flex">
+        {/* <div className="flex">
           <div className="px-1 w-1/5 bg-green-300">
 
               <SideBar>
@@ -58,7 +62,19 @@ function App() {
             </div>
           
           </div>
-        </div>
+        </div> */}
+
+        <>
+          <h3 className="text-2xl font-semibold text-purple-700">Context</h3>
+          <ThemeContext.Provider value={darkTheme}>
+            <button className='bg-green-500 py-3 px-2 rounded' onClick={toggleTheme}>Toggle Theme</button>
+            
+            <ContextComponentC />
+            <ContextComponentF />
+
+          </ThemeContext.Provider>
+        </>
+
       </div>
     </div>
   );
